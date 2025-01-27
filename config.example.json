@@ -1,5 +1,7 @@
 {
     "deepl_api_key": "your-api-key-here",
     "target_language": "EN-US",
-    "console_log_path": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo\\console.log"
+    "console_log_path": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo\\console.log",
+    "debug": false,
+    "own_name": "YourPlayerName"
 } 
