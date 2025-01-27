@@ -201,6 +201,11 @@ func waitForEnter() {
 }
 
 func main() {
+	if runtime.GOOS == "windows" {
+		// Redirect log output to stdout for Windows
+		log.SetOutput(os.Stdout)
+	}
+
 	config, err := loadConfig()
 	if err != nil {
 		log.Printf("Error loading config: %v", err)
@@ -213,4 +218,7 @@ func main() {
 		waitForEnter()
 		os.Exit(1)
 	}
+
+	// Always wait for Enter on Windows before exiting
+	waitForEnter()
 }

@@ -66,11 +66,16 @@ cp config.example.json config.json
 2. Run the application:
 ```bash
 # Windows
-cs2-translate.exe
+cs2-translate.exe  # Press Enter to exit when done
 
 # Linux
 ./cs2-translate
 ```
+
+⚠️ **Windows Security Note**: Since this is an unsigned executable, Windows Defender might show a warning. You can safely run the application by:
+1. Click "More info" in the warning dialog
+2. Select "Run anyway"
+3. Optionally, add the folder to Windows Defender exclusions
 
 The application will now monitor your CS2 chat and translate messages in real-time.
 
