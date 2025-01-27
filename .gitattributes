@@ -1,0 +1,6 @@
+# Set the default behavior, in case people don't have core.autocrlf set
+* text=auto
+
+# Ensure hook files are executable
+.githooks/* text eol=lf
+.githooks/commit-msg text eol=lf executable 
