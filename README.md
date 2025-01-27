@@ -1,5 +1,9 @@
 # 🎮 CS2 Chat Translator
 
+[![Build and Push Release](https://github.com/larskghf/cs2-translate/actions/workflows/release.yml/badge.svg)](https://github.com/larskghf/cs2-translate/actions/workflows/release.yml)
+[![Latest Release](https://img.shields.io/github/v/release/larskghf/cs2-translate)](https://github.com/larskghf/cs2-translate/releases/latest)
+[![License](https://img.shields.io/github/license/larskghf/cs2-translate)](https://github.com/larskghf/cs2-translate/blob/main/LICENSE)
+
 A simple Go application that monitors Counter-Strike 2's console output and translates chat messages in real-time using the DeepL API.
 
 ## ✨ Features
@@ -8,7 +12,7 @@ A simple Go application that monitors Counter-Strike 2's console output and tran
 - 🌍 Automatic translation using DeepL API
 - 💬 Supports all CS2 chat types (All Chat, Team Chat)
 - 🌐 Language-independent chat detection
-- 🎯 Minimal and clean console output
+
 
 ## 📋 Prerequisites
 
@@ -19,7 +23,7 @@ A simple Go application that monitors Counter-Strike 2's console output and tran
 
 ### Option 1: Download pre-built binary (recommended)
 
-1. Download the latest release for your operating system from the [Releases](https://github.com/yourusername/cs2-translate/releases) page
+1. Download the latest release for your operating system from the [Releases](https://github.com/larskghf/cs2-translate/releases) page
 2. Create a `config.json` file in the same directory as the executable (see Configuration section)
 
 ### Option 2: Build from source
@@ -30,7 +34,7 @@ Requirements:
 Steps:
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/cs2-translate.git
+git clone https://github.com/larskghf/cs2-translate.git
 cd cs2-translate
 ```
 
@@ -54,7 +58,9 @@ cp config.example.json config.json
 {
     "deepl_api_key": "your-api-key-here",
     "target_language": "DE",
-    "console_log_path": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo\\console.log"
+    "console_log_path": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo\\console.log",
+    "debug": false,
+    "own_name": "YourPlayerName"
 }
 ```
 ⚠️ Note: For Windows paths in the config file, you need to use double backslashes `\\` as shown above.
@@ -81,15 +87,17 @@ The application will now monitor your CS2 chat and translate messages in real-ti
 
 Example output:
 ```
-[ALLE] Player1: Привет всем!  ->  Hello everyone!
-[T] Player2: brauche Hilfe bei A     ->  Need help on A!
+[ALL] Player1: Привет всем!
+[T] Player2: need help on A!
 ```
 
 ## ⚙️ Configuration
 
 - 🔑 `deepl_api_key`: Your DeepL API key
-- 🌍 `target_language`: Target language code (e.g., "DE" for German, "FR" for French) - [See all available languages](LANGUAGES.md)
+- 🌍 `target_language`: Target language code (e.g., "DE" for German, "EN-US" for English, etc.)
 - 📁 `console_log_path`: Path to your CS2 console log file
+- ⚠️ `debug`: Set to true to see detailed debug information
+- 👤 `own_name`: Your in-game player name (messages from this player won't be translated)
 
 Default console.log paths:
 ```
